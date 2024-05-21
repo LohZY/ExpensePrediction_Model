@@ -16,7 +16,10 @@ model = pickle.load(open('Models/model_transport.pkl', 'rb'))
 def predict():
     prediction = model.forecast(1)
     output = round(prediction[0],2)
-    return jsonify(output)
+    response={
+        "prediction": output
+    }
+    return jsonify(response)
 
 #build another route for updating
 
