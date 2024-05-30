@@ -23,28 +23,28 @@ db = SQLAlchemy(app)
 
 #Create the table and its columns
 class FoodExpense(db.Model):
-    id = db.Column(db.Integer, primary_key=True)
+    id = db.Column(db.Integer, primary_key=True, autoincrement=True)
     category = db.Column(db.String(50), nullable=False)
     merchant_name = db.Column(db.String(50), nullable=False)
     date = db.Column(db.Date, nullable=False)
     amount = db.Column(db.Float, nullable=False)
 
 class TransportExpense(db.Model):
-    id = db.Column(db.Integer, primary_key=True)
+    id = db.Column(db.Integer, primary_key=True, autoincrement=True)
     category = db.Column(db.String(50), nullable=False)
     merchant_name = db.Column(db.String(50), nullable=False)
     date = db.Column(db.Date, nullable=False)
     amount = db.Column(db.Float, nullable=False)
 
 class UtilityExpense(db.Model):
-    id = db.Column(db.Integer, primary_key=True)
+    id = db.Column(db.Integer, primary_key=True, autoincrement=True)
     category = db.Column(db.String(50), nullable=False)
     merchant_name = db.Column(db.String(50), nullable=False)
     date = db.Column(db.Date, nullable=False)
     amount = db.Column(db.Float, nullable=False)
 
 class EntertainmentExpense(db.Model):
-    id = db.Column(db.Integer, primary_key=True)
+    id = db.Column(db.Integer, primary_key=True, autoincrement=True)
     category = db.Column(db.String(50), nullable=False)
     merchant_name = db.Column(db.String(50), nullable=False)
     date = db.Column(db.Date, nullable=False)
