@@ -9,14 +9,14 @@ from flask import Flask, request, render_template, jsonify
 from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy import create_engine, Column, Integer, Float, String, Date
 from sqlalchemy.orm import sessionmaker, declarative_base
-
+import pymysql
 import pickle
 
 app = Flask(__name__)
 
 model = pickle.load(open('Models/model_transport.pkl', 'rb'))
 # add all other models in
-app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://admin:Amazonloh!2828@expensedb.cnsuso6sw07n.ap-southeast-1.rds.amazonaws.com:3306/flaskaws'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://admin:Amazonloh!2828@expensedb.cnsuso6sw07n.ap-southeast-1.rds.amazonaws.com:3306/flaskaws'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 db = SQLAlchemy(app)
