@@ -66,8 +66,48 @@ def create_food_expense():
     db.session.add(new_expense)
     db.session.commit()
     return jsonify({"message": "Food expense added successfully!"}), 201
-    
 
+#endroute to add Transport expense
+@app.route('/addTransport', methods=['POST'])
+def create_transport_expense():
+    data = request.get_json()
+    new_expense = TransportExpense(
+        category=data['category'],
+        merchant_name=data['merchant_name'],
+        date=data['date'],
+        amount=data['amount']
+    )
+    db.session.add(new_expense)
+    db.session.commit()
+    return jsonify({"message": "Transport expense added successfully!"}), 201
+
+#endroute to add Entertainment expense
+@app.route('/addEntertainment', methods=['POST'])
+def create_entertainment_expense():
+    data = request.get_json()
+    new_expense = EntertainmentExpense(
+        category=data['category'],
+        merchant_name=data['merchant_name'],
+        date=data['date'],
+        amount=data['amount']
+    )
+    db.session.add(new_expense)
+    db.session.commit()
+    return jsonify({"message": "Entertainment expense added successfully!"}), 201
+
+#endroute to add Utility expense
+@app.route('/addUtility', methods=['POST'])
+def create_utility_expense():
+    data = request.get_json()
+    new_expense = UtilityExpense(
+        category=data['category'],
+        merchant_name=data['merchant_name'],
+        date=data['date'],
+        amount=data['amount']
+    )
+    db.session.add(new_expense)
+    db.session.commit()
+    return jsonify({"message": "Utility expense added successfully!"}), 201
 
 @app.route('/predict', methods=['POST'])
 def predict():
