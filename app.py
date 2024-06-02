@@ -133,7 +133,7 @@ def getAllExpenses():
             "id": expense.id,
             "category": expense.category,
             "merchant_name": expense.merchant_name,
-            "date": expense.date.strftime("%Y-%m-%d"),
+            "date": expense.date,
             "amount": expense.amount
         })
 
@@ -142,7 +142,7 @@ def getAllExpenses():
             "id": expense.id,
             "category": expense.category,
             "merchant_name": expense.merchant_name,
-            "date": expense.date.strftime("%Y-%m-%d"),
+            "date": expense.date,
             "amount": expense.amount
         })
 
@@ -151,7 +151,7 @@ def getAllExpenses():
             "id": expense.id,
             "category": expense.category,
             "merchant_name": expense.merchant_name,
-            "date": expense.date.strftime("%Y-%m-%d"),
+            "date": expense.date,
             "amount": expense.amount
         })
 
@@ -160,7 +160,7 @@ def getAllExpenses():
             "id": expense.id,
             "category": expense.category,
             "merchant_name": expense.merchant_name,
-            "date": expense.date.strftime("%Y-%m-%d"),
+            "date": expense.date,
             "amount": expense.amount 
         })
 
