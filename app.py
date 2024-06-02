@@ -118,6 +118,56 @@ def predict():
     }
     return jsonify(response)
 
+@app.route('/getAllExpenses', methods=['GET'])
+def getAllExpenses():
+    food_expenses = FoodExpense.query.all()
+    transport_expenses = TransportExpense.query.all()
+    utility_expenses = UtilityExpense.query.all()
+    entertainment_expenses = EntertainmentExpense.query.all()
+
+    # Combine all expenses into a single list
+    all_expenses = []
+
+    for expense in food_expenses:
+        all_expenses.append({
+            "id": expense.id,
+            "category": expense.category,
+            "merchant_name": expense.merchant_name,
+            "date": expense.date,
+            "amount": expense.amount
+        })
+
+    for expense in transport_expenses:
+        all_expenses.append({
+            "id": expense.id,
+            "category": expense.category,
+            "merchant_name": expense.merchant_name,
+            "date": expense.date,
+            "amount": expense.amount
+        })
+
+    for expense in utility_expenses:
+        all_expenses.append({
+            "id": expense.id,
+            "category": expense.category,
+            "merchant_name": expense.merchant_name,
+            "date": expense.date,
+            "amount": expense.amount
+        })
+
+    for expense in entertainment_expenses:
+        all_expenses.append({
+            "id": expense.id,
+            "category": expense.category,
+            "merchant_name": expense.merchant_name,
+            "date": expense.date,
+            "amount": expense.amount 
+        })
+
+    # Sort the combined list by date
+    all_expenses.sort(key=lambda x: x['date'])
+    return jsonify(all_expenses)
+
 if __name__ == "__main__":
     app.debug = True
     app.run(host='0.0.0.0')
