@@ -165,7 +165,7 @@ def getAllExpenses():
         })
 
     # Sort the combined list by date
-    all_expenses.sort(reverse=true, key=lambda x: x['date'])
+    all_expenses.sort(reverse=True, key=lambda x: x['date'])
     return jsonify(all_expenses)
 
 if __name__ == "__main__":
