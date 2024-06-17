@@ -2,3 +2,6 @@ Flask
 numpy
 pandas
 statsmodels
+PyMySQL
+Flask
+Flask-SQLAlchemy
