@@ -112,8 +112,14 @@ def create_utility_expense():
 @app.route('/predict', methods=['POST'])
 def predict():
     data = request.get_json()
-    prediction = model.forecast(data['month'])
-    output = round(prediction[0], 2)
+    weeks = data['month']
+
+    if isinstance(weeks, list) and len(weeks) >= 4:
+        weeks = weeks[-4:]
+        
+    prediction = model.forecast(weeks)
+    total_sum = sum(prediction)
+    output = round(total_sum, 2)
     response={
         "prediction": output
     }
