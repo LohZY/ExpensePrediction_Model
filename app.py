@@ -114,8 +114,10 @@ def predict():
     data = request.get_json()
     weeks = data['month']
 
-    if isinstance(weeks, list) and len(weeks) >= 4:
+    if len(weeks) >= 4:
         weeks = weeks[-4:]
+    else:
+        weeks = weeks[-1]
         
     prediction = model.forecast(weeks)
     total_sum = sum(prediction)
